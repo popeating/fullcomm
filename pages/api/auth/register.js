@@ -1,5 +1,4 @@
 import axios from '../../../lib/api';
-import cookie from 'cookie';
 export default async (req, res) => {
   if (req.method === 'POST') {
     resp = await axios
@@ -11,7 +10,7 @@ export default async (req, res) => {
       })
       .then((response) => {
         return res.status(200).json({
-          message: `Please check your email (${req.body.email}) to confirm your account.`,
+          message: `Check your email (${req.body.email}) and follow the instructions to confirm your account.`,
         });
       })
       .catch((error) => {
@@ -21,7 +20,6 @@ export default async (req, res) => {
           const messages = error.response.data.error.message;
           return res.status(403).json({ message: messages });
         }
-      })
-      .finally((res) => {});
+      });
   }
 };

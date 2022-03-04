@@ -1,4 +1,4 @@
-import { useState, createContext, useEffect } from 'react';
+import { useState, createContext } from 'react';
 export const UserContext = createContext(null);
 import { linstance } from '../lib/api';
 
