@@ -1,17 +1,13 @@
 import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
-import { useRouter } from 'next/router';
 import { UserContext } from '../context/user';
 
 function LoginForm() {
-  const { handleSubmit, register, reset } = useForm();
+  const { handleSubmit, register } = useForm();
 
   const [alert, setAlert] = useState(['', '']);
 
-  const { push } = useRouter();
-
-  const { user, setUser, doLogin, loggingIn, setLoggingIn } =
-    useContext(UserContext);
+  const { setUser, doLogin, loggingIn, setLoggingIn } = useContext(UserContext);
 
   const onSubmit = async (values) => {
     setLoggingIn(true);

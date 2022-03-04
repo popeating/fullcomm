@@ -1,7 +1,5 @@
 import Logout from '../../components/Logout';
 import Link from 'next/link';
-import cookie from 'cookie';
-import axios from '../../lib/api';
 import { useEffect, useContext } from 'react';
 
 import { UserContext } from '../../context/user';
