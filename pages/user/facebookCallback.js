@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router';
-import cookie from 'cookie';
-import axios from '../../lib/api';
+
 import { useEffect, useContext, useState } from 'react';
 
 import { UserContext } from '../../context/user';
@@ -14,7 +13,6 @@ export default function facebookCallback() {
       const res = await doFacebookCallback({
         access_token: router.query.access_token,
       });
-      //   console.log(res);
       if (res[0] === 'alert') {
         setError(res[1]);
       }

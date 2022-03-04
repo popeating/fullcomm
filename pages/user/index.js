@@ -6,8 +6,12 @@ import { UserContext } from '../../context/user';
 import GoogleLogin from '../../components/GoogleLogin';
 import FacebookLogin from '../../components/FacebookLogin';
 
+import { useRouter } from 'next/router';
+
 export default function Home() {
   const { user, email, id, checkLogin } = useContext(UserContext);
+  const { query } = useRouter();
+  const error = query.msg;
   useEffect(async () => {
     const res = await checkLogin();
     if (res.status === 200) {
@@ -17,6 +21,7 @@ export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center h-screen">
       <h1 className="text-3xl">Welcome</h1>
+      {error && <div>{error}</div>}
       {user && (
         <>
           <div>

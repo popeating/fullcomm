@@ -1,6 +1,5 @@
 import axios from '../../../../lib/api';
 import cookie from 'cookie';
-
 export default async (req, res) => {
   if (req.method === 'POST') {
     await axios
@@ -27,7 +26,9 @@ export default async (req, res) => {
         return res.status(200).json({ message: response.data.user });
       })
       .catch((error) => {
-        res.status(405).json({ message: error });
+        res
+          .status(405)
+          .json({ message: 'already registered with another provider' });
       });
   }
 };

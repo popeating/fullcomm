@@ -27,7 +27,9 @@ export default async (req, res) => {
         return res.status(200).json({ message: response.data.user });
       })
       .catch((error) => {
-        res.status(405).json({ message: 'already registered' });
+        res
+          .status(405)
+          .json({ message: 'already registered with another provider' });
       });
   }
 };
