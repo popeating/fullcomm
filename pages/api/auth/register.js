@@ -1,7 +1,7 @@
 import axios from '../../../lib/api';
 export default async (req, res) => {
   if (req.method === 'POST') {
-    resp = await axios
+    const resp = await axios
 
       .post('/api/auth/local/register', req.body, {
         headers: {
